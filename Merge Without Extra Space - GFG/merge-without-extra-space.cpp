@@ -26,12 +26,12 @@ class Solution{
                     p1++;
                     p2++;
                 }
-                if (gap == 1) {
-                    gap = 0;
-                } 
-                else {
-                    gap = ceil((float) gap / 2);
-                }
+                // if (gap == 1) {
+                //     gap = 0;
+                // } 
+                // else {
+                    gap = gap == 1 ? 0 : ceil((float) gap / 2);
+                // }
             }
         } 
 };
