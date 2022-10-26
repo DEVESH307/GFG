@@ -40,10 +40,6 @@ class Solution
                     res.push_back(ans[i]);
                 }
             }
-            // if(res.size() > 0)
-            //     return res;
-            // else
-            //     return {};
             return res;
         }
 
