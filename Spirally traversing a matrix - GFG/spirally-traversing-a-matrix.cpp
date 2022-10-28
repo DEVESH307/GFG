@@ -10,8 +10,6 @@ class Solution
     vector<int> spirallyTraverse(vector<vector<int> > matrix, int r, int c) {
         // code here
         vector<int> res;
-        // int r = matrix.size();
-        // int c = matrix[0].size();
         int top = 0;
         int bottom = r-1;
         int left = 0;
