@@ -16,7 +16,7 @@ class Solution {
 		    if(n == 1) return ans;
 		    
 		    for(int i = 2; i <= n; i++){
-		        ans = (ans%mod*1LL*i%mod + 1%mod)%mod;
+		        ans = (ans*1LL*i + 1)%mod;
 		    }
 		    return ans%mod;
 		}
