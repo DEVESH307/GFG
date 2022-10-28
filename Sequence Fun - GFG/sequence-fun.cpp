@@ -18,7 +18,7 @@ class Solution {
 		    for(int i = 2; i <= n; i++){
 		        ans = (ans*1LL*i + 1)%mod;
 		    }
-		    return ans%mod;
+		    return ans;
 		}
 };
 
