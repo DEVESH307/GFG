@@ -32,14 +32,30 @@ int main()
 
 int kthSmallest(int matrix[MAX][MAX], int n, int k){
     //Your code here
-    priority_queue<int> maxHeap;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            maxHeap.push(matrix[i][j]);
-            if(maxHeap.size() > k){
-                maxHeap.pop();
-            }
+    // priority_queue<int> maxHeap;
+    // for(int i = 0; i < n; i++){
+    //     for(int j = 0; j < n; j++){
+    //         maxHeap.push(matrix[i][j]);
+    //         if(maxHeap.size() > k){
+    //             maxHeap.pop();
+    //         }
+    //     }
+    // }
+    // return maxHeap.top();
+    int low = matrix[0][0];
+    int high = matrix[n-1][n-1];
+    while(low < high){
+        int mid = (low+high)/2;
+        int count = 0;
+        for(int i = 0; i < n; i++){
+            count += upper_bound(matrix[i], matrix[i]+n, mid) - matrix[i];
         }
-    }
-    return maxHeap.top();
+        if(count < k){
+            low = mid+1;
+        }
+        else{
+            high = mid;
+        }
+    }   
+    return low;
 }
