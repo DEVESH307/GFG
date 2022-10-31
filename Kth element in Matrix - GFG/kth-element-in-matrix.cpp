@@ -42,6 +42,7 @@ int kthSmallest(int matrix[MAX][MAX], int n, int k){
     //     }
     // }
     // return maxHeap.top();
+    
     int low = matrix[0][0];
     int high = matrix[n-1][n-1];
     while(low < high){
