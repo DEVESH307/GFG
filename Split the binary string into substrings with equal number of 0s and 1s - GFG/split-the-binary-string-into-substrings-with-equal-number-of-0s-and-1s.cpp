@@ -21,7 +21,6 @@ public:
             }
             if(count0 == count1){
                 res++;
-
             }
         }
         return count0 != count1 ? -1 : res;
