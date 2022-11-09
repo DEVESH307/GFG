@@ -20,9 +20,7 @@ class Solution{
             mp[sorted_str].push_back(string_list[i]);
         }
         
-        // vector<vector<string>> res(mp.size());
         vector<vector<string>> res;
-        // int idx = 0;
         for(auto itr: mp){
             vector<string> temp;
             auto vec = itr.second;
