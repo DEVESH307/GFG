@@ -19,16 +19,16 @@ int main()
 
 string firstRepChar(string str){
     //code here.
-    string ans;
+    string ans = "-1";
     unordered_set<char> set;
     for(auto ch: str){
         if(set.find(ch) != set.end()){
-            ans.push_back(ch);
+            ans = ch;
             break;
         }
         else{
             set.insert(ch);
         }
     }
-    return ans.size() > 0 ? ans: "-1";
+    return ans;
 }
