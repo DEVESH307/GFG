@@ -11,9 +11,25 @@ class Solution{
   public:
     int middle(int A, int B, int C){
         //code here//Position this line where user code will be pasted.
-        vector<int> vec = {A, B, C};
-        sort(vec.begin(), vec.end());
-        return vec[1];
+        // vector<int> vec = {A, B, C};
+        // sort(vec.begin(), vec.end());
+        // return vec[1];
+        // int mod=pow(10,9)+7;
+        // long long a=A-B,b=B-C,c=C-A;
+        // if((a*b)%mod>0){
+        //     return B;
+        // }
+        // if((b*c)%mod>0){
+        //     return C;
+        // }
+        // else{
+        //     return A;
+        // }
+        int mx = max({A, B, C});
+        int mn = min({A, B, C});
+        
+        return (A+B+C)-(mx+mn);
+        
     }
 };
 
