@@ -8,20 +8,32 @@ class Solution {
   public:
     void printSquare(int n) {
         // code here
+        // for(int i = 0; i < n; i++){
+        //     if(i == 0 || i == n-1){
+        //         for(int j = 0; j < n; j++){
+        //             cout<<"*";
+        //         }
+        //         cout<<endl;
+        //     }
+        //     else{
+        //         cout<<"*";
+        //         for(int j = 0; j < n-2; j++){
+        //             cout<<" ";
+        //         }
+        //         cout<<"*"<<endl;
+        //     }
+        // }
+        
         for(int i = 0; i < n; i++){
-            if(i == 0 || i == n-1){
-                for(int j = 0; j < n; j++){
+            for(int j = 0; j < n; j++){
+                if(i == 0 || i == n-1 || j ==0 || j == n-1){
                     cout<<"*";
                 }
-                cout<<endl;
-            }
-            else{
-                cout<<"*";
-                for(int j = 0; j < n-2; j++){
+                else{
                     cout<<" ";
                 }
-                cout<<"*"<<endl;
             }
+            cout<<endl;
         }
     }
 };
