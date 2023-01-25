@@ -13,12 +13,8 @@ class Solution {
         int num_of_digits = 0;
         int temp = n;
         while(temp){
-            temp /= 10;
-            num_of_digits++;
-        }
-        temp = n;
-        while(temp){
-            ans += pow(temp%10, num_of_digits);
+            int rem = temp%10;
+            ans += rem*rem*rem;
             temp /= 10;
         }
         if(ans == n) return "Yes";
