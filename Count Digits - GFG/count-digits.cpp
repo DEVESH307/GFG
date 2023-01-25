@@ -10,9 +10,9 @@ public:
         int ans = 0;
         int temp = n;
         while(temp){
-            int rem = temp%10;
+            int last = temp%10;
             temp /= 10;
-            if(rem != 0 && n%rem == 0) ans++;
+            if(last != 0 && n%last == 0) ans++;
         }
         return ans;
     }
