@@ -9,6 +9,26 @@ class Solution{
     // arr[]: Input Array
     // N : Size of the Array arr[]
     // Function to count inversions in the array.
+        
+    // inversion count using bubble sort
+    // long long int inversionCount(long long int arr[], long long int n){
+    //     int inv_cnt = 0;
+        
+    //     for(int i = 0; i < n; i++){
+    //         int no_of_swap = 0;
+    //         for(int j = 0; j < n-i-1; j++){
+    //             if(arr[j] > arr[j+1]){
+    //                 swap(arr[j], arr[j+1]);
+    //                 no_of_swap++;
+    //             }
+    //         }
+    //         inv_cnt += no_of_swap;
+    //         // if(no_of_swap == 0) return 0;
+    //     }
+    //     return inv_cnt;
+    // }
+    
+    // inversion count using merge sort
     long long int mergeCount(long long int arr[], long long int left,  long long int mid2, long long int right){
         long long int a = left;
         long long int b = mid2;
