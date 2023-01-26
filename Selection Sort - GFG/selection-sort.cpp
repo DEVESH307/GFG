@@ -45,6 +45,7 @@ class Solution
         // }
     
         // Stable sort
+        // insert all the element which is less than arr[minIdx] put at last
         for(int i = 0; i < n-1; i++){
           int minIdx = i;
             for(int j = i+1; j < n; j++){
