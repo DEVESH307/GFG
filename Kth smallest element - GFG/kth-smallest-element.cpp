@@ -9,6 +9,7 @@ using namespace std;
 
 class Solution{
     public:
+    // Binary Search Method
     // int count(int nums[], int r, int& mid){
     //     int cnt = 0;
     //     for (int i = 0; i <= r; i++){
@@ -23,7 +24,6 @@ class Solution{
     //     // sort(arr, arr+r+1);
     //     // return arr[k-1];
         
-    //     // Binary Search Method
     //     int low = INT_MAX;
     //     int high = INT_MIN;
     //     for (int i = 0; i <= r; i++) {
