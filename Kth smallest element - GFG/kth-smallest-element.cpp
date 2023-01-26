@@ -9,50 +9,79 @@ using namespace std;
 
 class Solution{
     public:
-    int count(int nums[], int r, int& mid){
-        // function to calculate number of elements less than
-        // equal to mid
-        int cnt = 0;
-     
-        for (int i = 0; i <= r; i++)
-            if (nums[i] <= mid)
-                cnt++;
-     
-        return cnt;
-    }
-    // arr : given array
-    // l : starting index of the array i.e 0
-    // r : ending index of the array i.e size-1
-    // k : find kth smallest element and return using this function
-    int kthSmallest(int arr[], int l, int r, int k) {
-        //code here
-        // sort(arr, arr+r+1);
-        // return arr[k-1];
-        int low = INT_MAX;
-        int high = INT_MIN;
-        // calculate minimum and maximum the array.
-        for (int i = 0; i <= r; i++) {
-            low = min(low, arr[i]);
-            high = max(high, arr[i]);
+    // int count(int nums[], int r, int& mid){
+    //     int cnt = 0;
+    //     for (int i = 0; i <= r; i++){
+    //         if (nums[i] <= mid){
+    //             cnt++;
+    //         }
+    //     }
+    //     return cnt;
+    // }
+    // int kthSmallest(int arr[], int l, int r, int k) {
+    //     //code here
+    //     // sort(arr, arr+r+1);
+    //     // return arr[k-1];
+        
+    //     // Binary Search Method
+    //     int low = INT_MAX;
+    //     int high = INT_MIN;
+    //     for (int i = 0; i <= r; i++) {
+    //         low = min(low, arr[i]);
+    //         high = max(high, arr[i]);
+    //     }
+    //     while (low < high) {
+    //         int mid = (low + high)/2;
+    //         if (count(arr, r, mid) < k)
+    //             low = mid + 1;
+    //         else
+    //             high = mid;
+    //     }
+    //     return low;
+    // }
+    
+    //Quick Select Method
+    // int partition (int arr[], int low, int high){
+    //   // Your code here
+    //   int p1 = low+1;
+    //   int p2 = high;
+    //   while(p1 <= p2){
+    //       if(arr[p1] <= arr[low]){
+    //           p1++;
+    //       }
+    //       else if(arr[p2] > arr[low]){
+    //           p2--;
+    //       }
+    //       else{
+    //           swap(arr[p1], arr[p2]);
+    //           p1++;
+    //           p2--;
+    //       }
+    //   }
+    //   swap(arr[low], arr[p1-1]);
+    //   return (p1-1);
+    // }
+    // int kthSmallest(int arr[], int l, int r, int k){
+    //     if (k > 0 && k <= r-l+1) {
+    //         int index = partition(arr, l, r);
+    //         if (index-l == k-1)
+    //             return arr[index];
+    //         else if (index-l > k-1) 
+    //             return kthSmallest(arr, l, index-1, k);
+    //         else
+    //             return kthSmallest(arr, index+1, r, k-index+l-1);
+    //     }
+    //     return INT_MAX;
+    // }
+    
+    //Heap Method
+    int kthSmallest(int arr[], int l, int r, int k){
+        priority_queue<int> pq;
+        for(int i = l; i <= r; i++){
+            pq.push(arr[i]);
+            if(pq.size() > k) pq.pop();
         }
-        // Our answer range lies between minimum and maximum
-        // element of the array on which Binary Search is
-        // Applied
-        while (low < high) {
-            int mid = low + (high - low) / 2;
-            /*if the count of number of elements in the array
-              less than equal to mid is less than k then
-              increase the number. Otherwise decrement the
-              number and try to find a better answer.
-            */
-            if (count(arr, r, mid) < k)
-                low = mid + 1;
-     
-            else
-                high = mid;
-        }
-     
-        return low;
+        return pq.top();
     }
 };
 
