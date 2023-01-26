@@ -11,6 +11,8 @@ class Solution
 {
 public:
     int largest(vector<int> &arr, int n){
+        // sort(arr.begin(), arr.end());
+        // return arr[n-1];
         int mx = INT_MIN;
         for(auto num: arr){
             if(num > mx){
