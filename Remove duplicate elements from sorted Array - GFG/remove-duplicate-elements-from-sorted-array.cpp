@@ -11,30 +11,30 @@ using namespace std;
 class Solution{
 public:
     // Using set
-    int remove_duplicate(int arr[],int n){
-        // code here
-        set<int> set;
-        for(int i = 0; i < n; i++){
-            set.insert(arr[i]);
-        }
-        int k = 0;
-        for(auto num: set){
-            arr[k++] = num;
-        }
-        return set.size();
-    }
+    // int remove_duplicate(int arr[],int n){
+    //     // code here
+    //     set<int> set;
+    //     for(int i = 0; i < n; i++){
+    //         set.insert(arr[i]);
+    //     }
+    //     int k = 0;
+    //     for(auto num: set){
+    //         arr[k++] = num;
+    //     }
+    //     return set.size();
+    // }
     
     // No etra space
-    // int remove_duplicate(int arr[],int n){
-    //     int k = 1;
-    //     for(int i = 1; i < n; i++){
-    //         if(arr[i-1] != arr[i]){
-    //             arr[k] = arr[i];
-    //             k++;
-    //         }
-    //     }
-    //     return k;
-    // }
+    int remove_duplicate(int arr[],int n){
+        int k = 1;
+        for(int i = 1; i < n; i++){
+            if(arr[i-1] != arr[i]){
+                arr[k] = arr[i];
+                k++;
+            }
+        }
+        return k;
+    }
 };
 
 //{ Driver Code Starts.
