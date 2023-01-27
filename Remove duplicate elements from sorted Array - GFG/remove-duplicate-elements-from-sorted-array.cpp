@@ -10,20 +10,31 @@ using namespace std;
 
 class Solution{
 public:
-    // int remove_duplicate(int arr[],int n){
-    //     // code here
-    //     unordered_set<int> set;
-        
-    // }
+    // Using set
     int remove_duplicate(int arr[],int n){
-        int k = 1;
-        for(int i = 1; i < n; i++){
-            if(arr[i-1] != arr[i]){
-                arr[k++] = arr[i];
-            }
+        // code here
+        set<int> set;
+        for(int i = 0; i < n; i++){
+            set.insert(arr[i]);
         }
-        return k;
+        int k = 0;
+        for(auto num: set){
+            arr[k++] = num;
+        }
+        return set.size();
     }
+    
+    // No etra space
+    // int remove_duplicate(int arr[],int n){
+    //     int k = 1;
+    //     for(int i = 1; i < n; i++){
+    //         if(arr[i-1] != arr[i]){
+    //             arr[k] = arr[i];
+    //             k++;
+    //         }
+    //     }
+    //     return k;
+    // }
 };
 
 //{ Driver Code Starts.
