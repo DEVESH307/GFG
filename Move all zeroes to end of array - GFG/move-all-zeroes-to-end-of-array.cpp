@@ -7,20 +7,24 @@ using namespace std;
 class Solution{
 public:
 	void pushZerosToEnd(int arr[], int n) {
-	    // code here
-	   // int count0 = 0;
-	   // for(int i = 0; i < n; i++){
-	   //     if(arr[i] == 0) count0++;
-	   // }
-	    int j = 0;
-	    for(int i = 0; i < n; i++){
-	        if(arr[i] != 0){
-	            arr[j++] = arr[i];
-	        }
-	    }
-	    while(j < n){
-	        arr[j++] = 0;
-	    }
+        // code here
+        // int j = 0;
+        // for(int i = 0; i < n; i++){
+        //     if(arr[i] != 0){
+        //         arr[j++] = arr[i];
+        //     }
+        // }
+        // while(j < n){
+        //     arr[j++] = 0;
+        // }
+	   
+        int j = 0;
+        for(int i = 0; i < n; i++){
+            if(arr[i] != 0){
+                swap(arr[i], arr[j]);
+                j++;
+            }
+        }
 	}
 };
 
