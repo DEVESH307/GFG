@@ -18,7 +18,7 @@ public:
         int j = m-1;
         while(j >= 0 && i < n){
             if(matrix[i][j] == target){
-                return true;
+                return 1;
             }
             else if(matrix[i][j] < target){
                 i++;
@@ -27,7 +27,7 @@ public:
                 j--;
             }
         }
-        return false;
+        return 0;
 	}
 };
 
