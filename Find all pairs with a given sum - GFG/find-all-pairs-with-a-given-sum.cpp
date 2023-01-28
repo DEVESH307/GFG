@@ -5,16 +5,31 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
     public:
+    // vector<pair<int,int>> allPairs(int A[], int B[], int N, int M, int X){
+    //     // Your code goes here  
+    //     vector<pair<int,int>> res;
+    //     sort(A, A+N);
+    //     sort(B, B+M);
+    //     for(int i = 0; i < N; i++){
+    //         for(int j = 0; j < M; j++){
+    //             if(A[i] + B[j] == X){
+    //                 res.push_back({A[i], B[j]});
+    //             }
+    //         }
+    //     }
+    //     return res;
+    // }
+    
     vector<pair<int,int>> allPairs(int A[], int B[], int N, int M, int X){
         // Your code goes here  
         vector<pair<int,int>> res;
+        unordered_set<int> set(B, B+M);
         sort(A, A+N);
         sort(B, B+M);
         for(int i = 0; i < N; i++){
-            for(int j = 0; j < M; j++){
-                if(A[i] + B[j] == X){
-                    res.push_back({A[i], B[j]});
-                }
+            int find = X-A[i];
+            if(set.find(find) != set.end()){
+                res.push_back({A[i], find});
             }
         }
         return res;
