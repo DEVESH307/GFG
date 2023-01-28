@@ -10,6 +10,7 @@ class Solution{
         int ans = 0;
         int sum = 0;
         unordered_map<int, int> mp;
+        //add this to write extra line of code
         mp[0] = 0;
         for(int i  = 1; i <= N; i++){
             sum += A[i-1];
