@@ -11,18 +11,18 @@ public:
 	    int max_count1 = 0;
 	    int i = 0;
 	    int j = m-1;
-	    int row = -1;
+	    int ans = -1;
 	    while(i < n && j >= 0){
 	        if(arr[i][j] == 1){
 	            max_count1++;
 	            j--;
-	            row = i;
+	            ans = i;
 	        }
 	        else{
 	            i++;
 	        }
 	    }
-	    return row;
+	    return ans;
 	}
 
 };
