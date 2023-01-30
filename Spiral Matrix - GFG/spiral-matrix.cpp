@@ -20,30 +20,30 @@ class Solution{
         while(top <= bottom && left <= right && res.size() < row*col ){
             for(int i = left; i <= right && res.size() < row*col; i++){
                 res.push_back(matrix[top][i]);
-                count++;
-                if(count == k) return res.back();
+                // count++;
+                // if(count == k) return res.back();
             }
             top++;
             for(int i = top; i <= bottom && res.size() < row*col; i++){
                 res.push_back(matrix[i][right]);
-                count++;
-                if(count == k) return res.back();
+                // count++;
+                // if(count == k) return res.back();
             }
             right--;
             for(int i = right; i >= left && res.size() < row*col; i--){
                 res.push_back(matrix[bottom][i]);
-                count++;
-                if(count == k) return res.back();
+                // count++;
+                // if(count == k) return res.back();
             }
             bottom--;
             for(int i = bottom; i >= top && res.size() < row*col; i--){
                 res.push_back(matrix[i][left]);
-                count++;
-                if(count == k) return res.back();
+                // count++;
+                // if(count == k) return res.back();
             }
             left++;
         }
-        // return res;
+        return res[k-1];
     }
 
 };
