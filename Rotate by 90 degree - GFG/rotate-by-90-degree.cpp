@@ -9,16 +9,16 @@ class Solution
     public:
     //Function to rotate matrix anticlockwise by 90 degrees.
     void rotateby90(vector<vector<int> >& matrix, int n) {
-        //Transpose
-        for(int i = n-1; i >= 0; i--){
-            for(int j = n-1; j >= i; j--){
-                swap(matrix[i][j], matrix[j][i]);
+        //Transpose on secondary diagonal
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n-i; j++){
+                swap(matrix[i][j], matrix[n-j-1][n-i-1]);
             }
         }
         // reverse colwise
         for(int i = 0; i < n; i++){
-            for(int j = 0, k = n-1; j < k; j++, k--){
-                swap(matrix[j][i], matrix[k][i]);
+            for(int j = 0; j < n/2; j++){
+                swap(matrix[i][j], matrix[i][n-j-1]);
             }
         }
     }  
