@@ -25,50 +25,27 @@ int main() {
 
 // } Driver Code Ends
 
+
 // User function template for C++
 
 // This function finds the buy sell schedule for maximum profit
-// void stockBuySell(int price[], int n) {
-//     int i = 0;
-//     if(n ==  1)
-//         return;
-//     while(i < n-1){
-//         while ((i < n - 1) && (price[i + 1] <= price[i]))
-//             i++;
-//         if(i == n-1)
-//             break;
-//         int buy = i++;
-        
-//         while ((i < n) && (price[i] >= price[i - 1]))
-//             i++;
-//         int sell = i - 1;
-//         cout<<"("<<buy<<" "<<sell<<") ";
-//     }
-// }
-
 void stockBuySell(int price[], int n) {
-    vector<vector<int>> ans;
-    for (int i = 1; i < n; i++){
-        vector<int> temp;
-        if (price[i] > price[i-1]){
-            temp.push_back(i-1);
+    // code here
+    vector<vector<int>> res;
+    int mxProfit = 0;
+    for(int i = 1; i < n; i++){
+        int start = i-1;
+        while(i < n && price[i-1] < price[i]){
             i++;
-            while (i < n){
-                if (price[i] >= price[i-1]){
-                    i++;
-                }
-                else break;
-            }
-            temp.push_back(i-1);
-            ans.push_back(temp);
         }
+        if(start != i-1) res.push_back({start, i-1});
     }
-    if(ans.empty()){
+    if(res.empty()){
         cout << "No Profit" << endl;
         return;
     }
-    for (auto i : ans){
-        cout<<"("<<i[0]<<" "<<i[1]<<") ";
+    for (auto itr : res){
+        cout<<"("<<itr[0]<<" "<<itr[1]<<") ";
     }
     cout << endl;
 }
