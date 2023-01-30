@@ -9,27 +9,48 @@ using namespace std;
 
 class Solution{
 public:
+    // vector<int> nextPermutation(int n, vector<int> arr){
+    //     // code here
+    //     // int n = arr.size();
+    //     int i;
+    //     for(i = n-1; i > 0 ; i--){
+    //         if(arr[i-1] < arr[i]){
+    //             break;
+    //         }
+    //     }
+    //     if(i == 0){
+    //         reverse(arr.begin(), arr.end());
+    //     }
+    //     else{
+    //         int j;
+    //         for(j = n-1; j > i; j--){
+    //             if(arr[j] > arr[i-1]){
+    //                 break;
+    //             }
+    //         }
+    //         swap(arr[i-1], arr[j]);
+    //         sort(arr.begin()+i, arr.end());
+    //     }
+    //     return arr;
+    // }
+    
     vector<int> nextPermutation(int n, vector<int> arr){
         // code here
-        // int n = arr.size();
         int i;
         for(i = n-1; i > 0 ; i--){
             if(arr[i-1] < arr[i]){
                 break;
             }
         }
-        if(i == 0){
-            reverse(arr.begin(), arr.end());
-        }
-        else{
-            int j;
-            for(j = n-1; j > i; j--){
-                if(arr[j] > arr[i-1]){
-                    break;
-                }
+        reverse(arr.begin()+i, arr.end());
+        int left = i-1;
+        int right = i;
+        while(left >= 0 && right < n){
+            if(arr[right] > arr[left]){
+                swap(arr[left], arr[right]);
+                break;
             }
-            swap(arr[i-1], arr[j]);
-            sort(arr.begin()+i, arr.end());
+            right++;
         }
         return arr;
     }
