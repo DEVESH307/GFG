@@ -11,12 +11,11 @@ public:
     void merge(long long arr1[], long long arr2[], int n, int m) {
         // code here 
         int arr3[n+m];
-        int k = 0;
-        for(int i = 0; i < n; i++){
-            arr3[k++] = arr1[i];
-        }
-        for(int j = 0; j < m; j++){
-            arr3[k++] = arr2[j];
+        for(int i = 0; i < n+m; i++){
+            if(i < n)
+                arr3[i] = arr1[i];
+            else
+                arr3[i] = arr2[i-n];
         }
         sort(arr3, arr3+n+m);
         for(int i = 0; i < n+m; i++){
