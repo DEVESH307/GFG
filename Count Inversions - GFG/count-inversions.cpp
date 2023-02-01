@@ -73,7 +73,6 @@ class Solution{
     }
     long long int inversionCount(long long int arr[], long long int N){
         // Your Code Here
-        // long long int temp[N];
         return inversionCountHelper(arr, 0, N-1);
     }
 
