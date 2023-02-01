@@ -29,16 +29,17 @@ class Solution {
   public:
     int Merge(vector <int> &arr, int low, int mid, int high) {
         int total = 0;
-        int j = mid + 1;
+        int j = mid+1;
         for (int i = low; i <= mid; i++) {
             while (j <= high && arr[i] > 2LL*arr[j]) {
                 j++;
             }
-            total += (j - (mid + 1));
+            total += (j-(mid+1));
         }
         
         vector<int> temp;
-        int left = low, right = mid + 1;
+        int left = low;
+        int right = mid+1;
         while (left <= mid && right <= high) {
             if (arr[left] <= arr[right]){
                 temp.push_back(arr[left++]);
@@ -60,9 +61,9 @@ class Solution {
     }
     int MergeSort(vector<int> & arr, int low, int high) {
         if (low >= high) return 0;
-        int mid = (low + high) / 2;
+        int mid = (low + high)/2;
         int x = MergeSort(arr, low, mid);
-        int y = MergeSort(arr, mid + 1, high);
+        int y = MergeSort(arr, mid+1, high);
         int z = Merge(arr, low, mid, high);
         return x+y+z;
     }
