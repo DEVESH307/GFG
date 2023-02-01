@@ -5,54 +5,74 @@ using namespace std;
 
 // } Driver Code Ends
 
-class Solution{
-public:
-    //Function to merge the arrays.
-    void merge(long long arr1[], long long arr2[], int n, int m) {
-        // code here 
-        int arr3[n+m];
-        for(int i = 0; i < n+m; i++){
-            if(i < n)
-                arr3[i] = arr1[i];
-            else
-                arr3[i] = arr2[i-n];
-        }
-        sort(arr3, arr3+n+m);
-        for(int i = 0; i < n+m; i++){
-            if(i < n)
-                arr1[i] = arr3[i];
-            else
-                arr2[i-n] = arr3[i];
-        }
-    } 
-};
+// class Solution{
+// public:
+//     //Function to merge the arrays.
+//     void merge(long long arr1[], long long arr2[], int n, int m) {
+//         // code here 
+//         int arr3[n+m];
+//         for(int i = 0; i < n+m; i++){
+//             if(i < n)
+//                 arr3[i] = arr1[i];
+//             else
+//                 arr3[i] = arr2[i-n];
+//         }
+//         sort(arr3, arr3+n+m);
+//         for(int i = 0; i < n+m; i++){
+//             if(i < n)
+//                 arr1[i] = arr3[i];
+//             else
+//                 arr2[i-n] = arr3[i];
+//         }
+//     } 
+// };
 
 // class Solution{
 // public:
 //     //Function to merge the arrays.
 //     void merge(long long arr1[], long long arr2[], int n, int m) {
 //         // code here 
-//         int gap = ceil((float)(n + m) / 2);
-//         while (gap > 0) {
-//             int p1 = 0;
-//             int p2 = gap;
-//             while (p2 < (n + m)) {
-//                 if (p2 < n && arr1[p1] > arr1[p2]) {
-//                     swap(arr1[p1], arr1[p2]);
-//                 } 
-//                 else if (p1 < n && p2 >= n && arr1[p1] > arr2[p2 - n]) {
-//                     swap(arr1[p1], arr2[p2 - n]);
-//                 } 
-//                 else if (p1 >= n && p2 >= n && arr2[p1 - n] > arr2[p2 - n]) {
-//                     swap(arr2[p1 - n], arr2[p2 - n]);
-//                 }
-//                 p1++;
-//                 p2++;
+//         int i, j;
+//         for(i = 0; i < n; i++){
+//             if(arr1[i] > arr2[0]){
+//                 swap(arr1[i], arr2[0]);
 //             }
-//             gap = gap == 1 ? 0 : ceil((float) gap / 2);
+//             int first = arr2[0];
+//             for(j = 1; j < m && arr2[j] < first; j++){
+//                 arr2[j-1] = arr2[j];
+//             }
+//             arr2[j-1] = first;
 //         }
+        
 //     } 
 // };
+
+class Solution{
+public:
+    //Function to merge the arrays.
+    void merge(long long arr1[], long long arr2[], int n, int m) {
+        // code here 
+        int gap = ceil((float)(n + m) / 2);
+        while (gap > 0) {
+            int p1 = 0;
+            int p2 = gap;
+            while (p2 < (n + m)) {
+                if (p2 < n && arr1[p1] > arr1[p2]) {
+                    swap(arr1[p1], arr1[p2]);
+                } 
+                else if (p1 < n && p2 >= n && arr1[p1] > arr2[p2 - n]) {
+                    swap(arr1[p1], arr2[p2 - n]);
+                } 
+                else if (p1 >= n && p2 >= n && arr2[p1 - n] > arr2[p2 - n]) {
+                    swap(arr2[p1 - n], arr2[p2 - n]);
+                }
+                p1++;
+                p2++;
+            }
+            gap = gap == 1 ? 0 : ceil((float) gap / 2);
+        }
+    } 
+};
 
 //{ Driver Code Starts.
 
