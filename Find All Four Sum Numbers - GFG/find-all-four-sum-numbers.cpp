@@ -10,32 +10,32 @@ class Solution{
     public:
     // arr[] : int input array of integers
     // k : the quadruple sum required
-    vector<vector<int> > fourSum(vector<int> &nums, int target) {
+    vector<vector<int> > fourSum(vector<int> &arr, int k) {
         // Your code goes here
         vector<vector<int>> res;
-        int n = nums.size();
-        sort(nums.begin(), nums.end());
+        int n = arr.size();
+        sort(arr.begin(), arr.end());
         for(int i = 0; i < n-3; i++){
             for(int j = i+1; j < n-2; j++){
                 int left_ptr = j+1;
                 int right_ptr = n-1;
                 while(left_ptr < right_ptr){
-                    long long curr_sum = 1LL*nums[i] + 1LL*nums[j] + 1LL*nums[left_ptr] + 1LL*nums[right_ptr]; 
-                    if(curr_sum > target)
+                    long long curr_sum = 1LL*arr[i] + 1LL*arr[j] + 1LL*arr[left_ptr] + 1LL*arr[right_ptr]; 
+                    if(curr_sum > k)
                         --right_ptr;
-                    else if(curr_sum < target)
+                    else if(curr_sum < k)
                         ++left_ptr;
                     else{
-                        res.push_back({nums[i], nums[j], nums[left_ptr], nums[right_ptr]});
+                        res.push_back({arr[i], arr[j], arr[left_ptr], arr[right_ptr]});
                         ++left_ptr;
                         --right_ptr;
-                        while (left_ptr < right_ptr && nums[left_ptr] == nums[left_ptr-1]) ++left_ptr;
-                        while (left_ptr < right_ptr && nums[right_ptr] == nums[right_ptr+1]) --right_ptr;
+                        while (left_ptr < right_ptr && arr[left_ptr] == arr[left_ptr-1]) ++left_ptr;
+                        while (left_ptr < right_ptr && arr[right_ptr] == arr[right_ptr+1]) --right_ptr;
                     }
                 }
-                while(j + 1 < n && nums[j] == nums[j+1]) ++j;
+                while(j + 1 < n && arr[j] == arr[j+1]) ++j;
             }
-            while(i + 1 < n && nums[i] == nums[i+1]) ++i;
+            while(i + 1 < n && arr[i] == arr[i+1]) ++i;
         }
         return res;
     }
