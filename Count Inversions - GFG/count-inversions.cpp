@@ -23,7 +23,6 @@ class Solution{
     //             }
     //         }
     //         inv_cnt += no_of_swap;
-    //         // if(no_of_swap == 0) return 0;
     //     }
     //     return inv_cnt;
     // }
