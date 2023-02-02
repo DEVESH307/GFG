@@ -7,28 +7,51 @@ using namespace std;
 
 // } Driver Code Ends
 // User function template for C++
-//Using Recursion
+// Using Recursion
+
+// class Solution {
+//   public:
+//     int binarySearchHelper(int arr[], int low, int high, int k) {
+//         // code here
+//         if(low > high) return -1;
+        
+//         int mid = (low+high)/2;
+//         if(arr[mid] == k) 
+//             return mid;
+//         else if(arr[mid] < k)
+//             return binarySearchHelper(arr, mid+1, high, k);
+//         else
+//             return binarySearchHelper(arr, low, mid-1, k);
+        
+//     }
+//     int binarysearch(int arr[], int n, int k) {
+//         // code here
+//         return binarySearchHelper(arr, 0, n-1, k);
+//     }
+// };
+
+// Iteration Method
+
 class Solution {
   public:
-    int binarySearchHelper(int arr[], int low, int high, int k) {
-        // code here
-        if(low > high) return -1;
-        
-        int mid = (low+high)/2;
-        
-        if(arr[mid] == k) 
-            return mid;
-        else if(arr[mid] < k)
-            return binarySearchHelper(arr, mid+1, high, k);
-        else
-            return binarySearchHelper(arr, low, mid-1, k);
-        
-    }
     int binarysearch(int arr[], int n, int k) {
         // code here
-        return binarySearchHelper(arr, 0, n-1, k);
+        int low = 0;
+        int high = n-1;
+        
+        while(low <= high){
+            int mid = (low+high)/2;
+            if(arr[mid] == k)
+                return mid;
+            else if(arr[mid] < k)
+                low = mid+1;
+            else
+                high = mid-1;
+        }
+        return -1;
     }
 };
+
 
 //{ Driver Code Starts.
 int main() {
